@@ -1,0 +1,18 @@
+name: 테스트 CI
+
+on: push
+
+jobs:
+  test:
+    name: 일단 테스트
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: use Node.js
+        uses: actions/setup-node@v3
+        with:
+          cache: npm
+
+      - run: npm run build
